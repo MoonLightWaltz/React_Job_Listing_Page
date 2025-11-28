@@ -1,26 +1,36 @@
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider,
+} from "react-router-dom";
 import React from "react";
+// import HomePage from "../../pages/HomePage";
 import NavBar from "../src/components/NavBar.jsx";
 import Hero from "../src/components/Hero.jsx";
 import HomeCards from "../src/components/HomeCards.jsx";
 import JobsListings from "./components/JobsListings.jsx";
+import ViewAllJobs from "./components/ViewAllJobs.jsx";
+
+// const router = createBrowserRouter(
+//   createRoutesFromElements(<Route index element={<HomePage />} />)
+// );
+
+// const App = () => {
+//   return <RouterProvider router={router} />;
+// };
+
+// export default App;
 
 const App = () => {
   return (
-    <body>
+    <>
       <NavBar />
       <Hero />
       <HomeCards />
       <JobsListings />
-
-      <section className="m-auto max-w-lg my-10 px-6">
-        <a
-          href="jobs.html"
-          className="block bg-black text-white text-center py-4 px-6 rounded-xl hover:bg-gray-700"
-        >
-          View All Jobs
-        </a>
-      </section>
-    </body>
+      <ViewAllJobs />
+    </>
   );
 };
 
