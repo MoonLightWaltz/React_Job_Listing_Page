@@ -5,16 +5,19 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import React from "react";
-// import HomePage from "../../pages/HomePage";
-import NavBar from "../src/components/NavBar.jsx";
-import Hero from "../src/components/Hero.jsx";
-import HomeCards from "../src/components/HomeCards.jsx";
-import JobsListings from "./components/JobsListings.jsx";
-import ViewAllJobs from "./components/ViewAllJobs.jsx";
-
-// const router = createBrowserRouter(
-//   createRoutesFromElements(<Route index element={<HomePage />} />)
-// );
+import HomePage from "./pages/HomePage";
+import MainLayout from "./layouts/MainLayout";
+import JobsPage from "./pages/JobsPage";
+import NotFoundPage from "./pages/NotFoundPage";
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<MainLayout />}>
+      <Route index element={<HomePage />} />
+      <Route path="/jobs" element={<JobsPage />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </Route>
+  )
+);
 
 // const App = () => {
 //   return <RouterProvider router={router} />;
@@ -23,15 +26,7 @@ import ViewAllJobs from "./components/ViewAllJobs.jsx";
 // export default App;
 
 const App = () => {
-  return (
-    <>
-      <NavBar />
-      <Hero />
-      <HomeCards />
-      <JobsListings />
-      <ViewAllJobs />
-    </>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;
