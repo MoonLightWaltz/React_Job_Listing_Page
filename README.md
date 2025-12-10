@@ -1,4 +1,26 @@
-<h1>Folder Structure</h1>
+# React Job Listing App
+
+A simple job-listing web application built with React + React Router.  
+Users can view a list of jobs, add new jobs, and navigate between job listings and individual job detail pages.
+
+## Features
+
+- List all jobs  
+- View details for a single job  
+- Add a new job via form  
+- Delete a job (if supported in backend / future update)  
+- Clean, responsive UI  
+- Uses React functional components and hooks (e.g. `useState`, `useNavigate`, `useLoaderData` / `useParams` from React Router)  
+
+## Built With
+
+- React  
+- React Router (createBrowserRouter / RouterProvider)  
+- Fetch API for HTTP requests to backend (e.g. `POST /api/jobs`)
+- Tailwind CSS
+- JavaScript 
+
+<h2>Folder Structure</h2>
 <h3>View in RAW data format</h3>
 <section>
   
