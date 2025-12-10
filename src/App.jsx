@@ -11,6 +11,7 @@ import JobsPage from "./pages/JobsPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import JobPage, { jobLoader } from "./pages/JobPage";
 import AddJobPage from "./pages/AddJobPage";
+import EditJobPage from "./pages/EditJobPage";
 
 // const App = () => {
 //   return <RouterProvider router={router} />;
@@ -39,6 +40,18 @@ const App = () => {
     return;
   };
 
+  //update job
+  const updateJob = async function (job) {
+    const res = await fetch(`/api/jobs/${job.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(job),
+    });
+    return;
+  };
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<MainLayout />}>
@@ -55,6 +68,11 @@ const App = () => {
         />
 
         <Route path="*" element={<NotFoundPage />} />
+        <Route
+          path="/edit-job/:id"
+          element={<EditJobPage updateJobsSubmit={updateJob} />}
+          loader={jobLoader}
+        />
       </Route>
     )
   );
